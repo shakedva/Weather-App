@@ -4,7 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Authors
 
-Student name - student email.
+Shaked Vaknin - shakedva@edu.hac.ac.il </br>
+Noy Tal - noyta@edu.hac.ac.il
 
 ## General Information
 
