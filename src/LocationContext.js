@@ -1,27 +1,37 @@
-
 import * as React from 'react'
 
-let LocationContext;
-LocationContext = React.createContext();
+let LocationContext = React.createContext();
 
 function locationReducer(state, action) {
     switch (action.type) {
         case 'add': {
-            return {count: state.count + 1}
+            return {locationList: [...state.locationList, action.location]}
         }
-        case 'delete': {
-            return {count: state.count - 1}
-        }
+//         case 'delete': {
+//             return {locationList: state.count - 1}
+//         }
         default: {
             throw new Error(`Unhandled action type: ${action.type}`)
         }
     }
 }
 
+//
+//
+// function addLocation(location) {
+//     return {
+//         type: 'add',
+//         location: location,
+//     }
+// }//
 function LocationProvider({children}) {
-    const [state, dispatch] = React.useReducer(LocationContext, {count: 0})
+    const [state, dispatch] = React.useReducer(locationReducer, {locationList: []})
     const value = {state, dispatch}
-    return <LocationContext.Provider value={value}>{children}</LocationContext.Provider>
+    return (
+        <LocationContext.Provider value={value}>
+            {children}
+        </LocationContext.Provider>
+    )
 }
 
 function useLocation() {

@@ -1,12 +1,15 @@
-import {useState} from 'react';
+// import {useReducer} from 'react';
+import {useLocation} from './LocationContext'
 
-function AddLocation(props)
-{
+function AddLocation(props) {
+    const {dispatch} = useLocation();
 
-    const handleSubmit = (event) =>
-    {
+    const handleSubmit = (event) => {
         event.preventDefault();
+            dispatch({type: 'add', location: props.name})
         alert(`The name you entered was: ${props.name}`);
+        //todo clear inputs
+        return <div> after submit </div>
     }
 
     return (
@@ -22,14 +25,14 @@ function AddLocation(props)
             <input
                 type="text"
                 value={props.latitude}
-                // onChange={(e) => setLatitude(e.target.value)}
+                onChange={(e) => props.changeLatitude(e.target.value)}
             />
             <br/>
             <label> Longitude </label>
             <input
                 type="text"
                 value={props.longitude}
-                // onChange={(e) => setLongitude(e.target.value)}
+                onChange={(e) => props.changeLongitude(e.target.value)}
             />
             <br/>
             <input type="submit" value={"Add Location"}/>

@@ -1,23 +1,22 @@
 import AddLocation from "./AddLocation"
-import LocationList from "./LocationList"
+import DisplayLocations from "./DisplayLocations"
 import {useState} from "react";
-function Locations () {
 
-    const [locationList, setLocationList] = useState([]);
+function Locations() {
 
-    // const [name, setName] = useState("");
-    // const [latitude, setLatitude] = useState("");
-    // const [longitude, setLongitude] = useState("");
-    //
+    const [name, setName] = useState("");
+    const [latitude, setLatitude] = useState("");
+    const [longitude, setLongitude] = useState("");
 
     return (
         <div>
-            <h1>Locations</h1>
-            <LocationList />
-            {/*<AddLocation name={name} changeName={setName} latitude={latitude} longitude={longitude}/>*/}
+            <DisplayLocations/>
+            <AddLocation name={name} changeName={setName}
+                         latitude={latitude} changeLatitude={setLatitude}
+                         longitude={longitude} changeLongitude={setLongitude}/>
         </div>
-        );
+    );
 
-};
+}
 
 export default Locations;
