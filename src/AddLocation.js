@@ -1,15 +1,12 @@
 import {useState} from 'react';
 
-function AddLocation()
+function AddLocation(props)
 {
-    const [name, setName] = useState("");
-    const [latitude, setLatitude] = useState("");
-    const [longitude, setLongitude] = useState("");
 
     const handleSubmit = (event) =>
     {
         event.preventDefault();
-        alert(`The name you entered was: ${name}`);
+        alert(`The name you entered was: ${props.name}`);
     }
 
     return (
@@ -17,22 +14,22 @@ function AddLocation()
             <label> Name </label>
             <input
                 type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={props.name}
+                onChange={(e) => props.changeName(e.target.value)}
             />
             <br/>
             <label> Latitude </label>
             <input
                 type="text"
-                value={latitude}
-                onChange={(e) => setLatitude(e.target.value)}
+                value={props.latitude}
+                // onChange={(e) => setLatitude(e.target.value)}
             />
             <br/>
             <label> Longitude </label>
             <input
                 type="text"
-                value={longitude}
-                onChange={(e) => setLongitude(e.target.value)}
+                value={props.longitude}
+                // onChange={(e) => setLongitude(e.target.value)}
             />
             <br/>
             <input type="submit" value={"Add Location"}/>
