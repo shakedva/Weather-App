@@ -1,13 +1,15 @@
 // import {useReducer} from 'react';
-import {useLocation} from './LocationContext'
+import {useLocation} from '../contexts/LocationContext'
+import {LocationData} from '../structs/LocationData'
 
 function AddLocation(props) {
     const {dispatch} = useLocation();
 
     const handleSubmit = (event) => {
         event.preventDefault();
-            dispatch({type: 'add', location: props.name})
-        alert(`The name you entered was: ${props.name}`);
+        const data = LocationData(props.name, props.latitude, props.longitude);
+        dispatch({type: 'add', location: data})
+
         //todo clear inputs
         return <div> after submit </div>
     }
