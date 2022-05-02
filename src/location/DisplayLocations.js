@@ -1,19 +1,31 @@
 // import {useState} from "react";
 import Locations from "./Locations";
 import {useLocation} from '../contexts/LocationContext'
+import LocationRow from './LocationRow'
 
-//
-function DisplayLocations(props) {
+function DisplayLocations() {
 
     const {state} = useLocation()
 
-    let l = state.locationList.length === 0 ? '(No locations yet...)' : state.locationList[0].name
+    const locationRows = [];
+
+    state.locationList.forEach((oneLocation) => {
+        locationRows.push(
+            <LocationRow
+                oneLocation={oneLocation}/>
+        );
+    });
+
+    let l = state.locationList.length === 0 ? '(No locations yet...)' : locationRows
     return (
-        <div>
-            <h1> Locations: </h1>
-            {`${l}`}
-        </div>
-    )
+        <table>
+            <thead>
+            <th>Locations:</th>
+            </thead>
+            <tbody>{l}</tbody>
+        </table>
+
+    );
 }
 
 export default DisplayLocations;
