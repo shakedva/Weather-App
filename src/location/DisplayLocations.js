@@ -10,17 +10,20 @@ function DisplayLocations() {
     const locationRows = [];
 
     state.locationList.forEach((oneLocation) => {
-        locationRows.push(
-            <LocationRow
-                oneLocation={oneLocation}/>
-        );
+        locationRows.push(<LocationRow key={oneLocation.name} oneLocation={oneLocation}/>);
     });
+    const msg = <tr>
+        <td>(No locations yet...)</td>
+    </tr>
 
-    let l = state.locationList.length === 0 ? '(No locations yet...)' : locationRows
+    let l = state.locationList.length === 0 ? msg : locationRows
     return (
         <table>
             <thead>
-            <th>Locations:</th>
+            <tr>
+                <th>Locations:</th>
+                <th> </th>
+            </tr>
             </thead>
             <tbody>{l}</tbody>
         </table>

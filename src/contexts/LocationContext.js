@@ -7,23 +7,15 @@ function locationReducer(state, action) {
         case 'add': {
             return {locationList: [...state.locationList, action.location]}
         }
-//         case 'delete': {
-//             return {locationList: state.count - 1}
-//         }
+        case 'delete': {
+            return {locationList: [state.locationList.filter(element => element.name !== action.locationToDelete), action.locationToDelete]}
+        }
         default: {
             throw new Error(`Unhandled action type: ${action.type}`)
         }
     }
 }
 
-//
-//
-// function addLocation(location) {
-//     return {
-//         type: 'add',
-//         location: location,
-//     }
-// }//
 function LocationProvider({children}) {
     const [state, dispatch] = React.useReducer(locationReducer, {locationList: []})
     const value = {state, dispatch}
