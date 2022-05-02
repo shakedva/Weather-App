@@ -2,16 +2,24 @@
 import Locations from "./Locations";
 import {useLocation} from '../contexts/LocationContext'
 import LocationRow from './LocationRow'
+import * as React from 'react'
 
 function DisplayLocations() {
 
     const {state} = useLocation()
 
-    const locationRows = [];
+    const locationRows = state.locationList.map((oneLocation) => {
+            return (
+                <React.Fragment key={oneLocation.name}>
+                    <LocationRow oneLocation={oneLocation}/>
+                </React.Fragment>
+            )
+        }
+    )
 
-    state.locationList.forEach((oneLocation) => {
-        locationRows.push(<LocationRow key={oneLocation.name} oneLocation={oneLocation}/>);
-    });
+    // state.locationList.forEach((oneLocation) => {
+    //     locationRows.push(<LocationRow key={oneLocation.name} oneLocation={oneLocation}/>);
+    // });
     const msg = <tr>
         <td>(No locations yet...)</td>
     </tr>
@@ -22,10 +30,10 @@ function DisplayLocations() {
             <thead>
             <tr>
                 <th>Locations:</th>
-                <th> </th>
+                <th></th>
             </tr>
             </thead>
-            <tbody>{l}</tbody>
+            <tbody>{locationRows}</tbody>
         </table>
 
     );
