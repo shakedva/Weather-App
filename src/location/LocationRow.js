@@ -1,14 +1,17 @@
 import DeleteLocation from "./DeleteLocation";
-import {useLocation} from '../contexts/LocationContext'
 
 function LocationRow(props) {
 
-    const {dispatch} = useLocation();
+    const handleClick = () => {
+        props.setSelectedLocation(props.oneLocation.name)
+    }
 
     return (
-        <li>{props.oneLocation.name}
-            <DeleteLocation name={props.oneLocation.name}/>
-        </li>
+        // <p className={'locationItem'}  >{props.oneLocation.name}
+        <p>
+            <span className={'locationItem'} onClick={handleClick}>{props.oneLocation.name}</span>
+            {props.showDelete ? <DeleteLocation name={props.oneLocation.name}/> : ""}
+        </p>
     );
 }
 

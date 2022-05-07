@@ -10,7 +10,7 @@ function Locations() {
 
     return (
         <div>
-            <DisplayLocations/>
+            <DisplayLocations showDelete={true}/>
             <AddLocation name={name} changeName={setName}
                          latitude={latitude} changeLatitude={setLatitude}
                          longitude={longitude} changeLongitude={setLongitude}/>

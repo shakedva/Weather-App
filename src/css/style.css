@@ -1,0 +1,12 @@
+.locationItem, span {
+    color: black;
+    border-style: solid;
+    width: 140px;
+    display: inline-block;
+    border-radius: 8px;
+}
+
+.locationsList {
+/*    border-color: green;*/
+/*    border-style: solid;*/
+}
