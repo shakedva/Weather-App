@@ -1,4 +1,4 @@
-// import {useState} from "react";
+import {useEffect, useState} from "react";
 import Locations from "./Locations";
 import {useLocation} from '../contexts/LocationContext'
 import LocationRow from './LocationRow'
@@ -8,35 +8,24 @@ function DisplayLocations() {
 
     const {state} = useLocation()
 
-    const locationRows = state.locationList.map((oneLocation) => {
+    //todo maybe state
+    const locationRows = state.locationList.map((oneLocation, index) => {
             return (
-                <React.Fragment key={oneLocation.name}>
+                <React.Fragment key={index}>
                     <LocationRow oneLocation={oneLocation}/>
                 </React.Fragment>
             )
         }
     )
-
-    // state.locationList.forEach((oneLocation) => {
-    //     locationRows.push(<LocationRow key={oneLocation.name} oneLocation={oneLocation}/>);
-    // });
-    const msg = <tr>
-        <td>(No locations yet...)</td>
-    </tr>
-
+    const msg = <li>(No locations yet...)</li>
     let l = state.locationList.length === 0 ? msg : locationRows
-    return (
-        <table>
-            <thead>
-            <tr>
-                <th>Locations:</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>{locationRows}</tbody>
-        </table>
 
-    );
+    return (
+        <ul>
+            {/*<li><h3>Locations:</h3></li>*/}
+            {locationRows}
+        </ul>
+    )
 }
 
 export default DisplayLocations;

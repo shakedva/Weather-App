@@ -1,12 +1,14 @@
 import DeleteLocation from "./DeleteLocation";
+import {useLocation} from '../contexts/LocationContext'
 
-function LocationRow({oneLocation}) {
+function LocationRow(props) {
+
+    const {dispatch} = useLocation();
 
     return (
-        <tr>
-            <td>{oneLocation.name}</td>
-            <td><DeleteLocation name={oneLocation.name}/></td>
-        </tr>
+        <li>{props.oneLocation.name}
+            <DeleteLocation name={props.oneLocation.name}/>
+        </li>
     );
 }
 

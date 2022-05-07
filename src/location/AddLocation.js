@@ -5,9 +5,6 @@ import {LocationData} from '../structs/LocationData'
 function AddLocation(props) {
     const {dispatch} = useLocation();
 
-
-
-
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = LocationData(props.name, props.latitude, props.longitude);
