@@ -4,9 +4,10 @@ import {useState} from "react";
 
 function Locations() {
 
-    const [name, setName] = useState("");
-    const [latitude, setLatitude] = useState("");
-    const [longitude, setLongitude] = useState("");
+    //todo remove default
+    const [name, setName] = useState("jlm");
+    const [latitude, setLatitude] = useState("31.771959");
+    const [longitude, setLongitude] = useState("35.213618");
 
     return (
         <div>

@@ -8,7 +8,7 @@ function locationReducer(state, action) {
             return {locationList: [...state.locationList, action.location]}
         }
         case 'delete': {
-            return {locationList: [...state.locationList.filter(element => element.key !== action.locationToDelete), action.locationToDelete]}
+            return {locationList: state.locationList.filter(element => element.name !== action.locationToDelete)}
         }
         default: {
             throw new Error(`Unhandled action type: ${action.type}`)

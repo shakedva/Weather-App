@@ -24,6 +24,7 @@ function AddLocation(props) {
                 type="text"
                 value={props.name}
                 onChange={(e) => props.changeName(e.target.value)}
+
             />
             <br/>
             <label> Latitude </label>
