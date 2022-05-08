@@ -1,5 +1,6 @@
 import DisplayLocations from "../location/DisplayLocations"
 import {useState} from "react";
+import DisplaySelectedLocation from "./DisplaySelectedLocation";
 
 const Forecast = () => {
     const [selectedLocation, setSelectedLocation] = useState("");
@@ -9,10 +10,7 @@ const Forecast = () => {
         <div>
             <h1>Forecast</h1>
             <DisplayLocations setSelectedLocation={setSelectedLocation} showDelete={false}/>
-
-            <div>
-                {selectedLocation}
-            </div>
+            {selectedLocation ? <DisplaySelectedLocation selectedLocation={selectedLocation}/> : <br/>}
         </div>)
 };
 
