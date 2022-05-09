@@ -1,4 +1,3 @@
-// import {useReducer} from 'react';
 import {useLocation} from '../contexts/LocationContext'
 import {LocationData} from '../structs/LocationData'
 import {useState} from "react";
@@ -10,29 +9,28 @@ function AddLocation(props) {
 
     const validateName = () => {
         setIsValid(true);
-        // document.getElementById("errorElem").classList.add("d-none")
-        //document.getElementById("errorElem").style.display = 'none';
         for (let location of state.locationList) {
             if (props.name === location.name) {
-                //document.getElementById("errorElem").style.display = 'block';//classList.remove("d-none")
                 setIsValid(false);
                 return false;
             }
         }
         return true;
     }
-
+    const resetInputs = () => {
+        props.changeName('')
+        props.changeLatitude('')
+        props.changeLongitude('')
+        setIsValid(true);
+    }
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = LocationData(props.name, props.latitude, props.longitude);
 
         if (validateName()) {
+            resetInputs()
             dispatch({type: 'add', location: data})
         }
-        // else
-        //     document.getElementById("errorElem").classList.remove("d-none")
-        //todo clear inputs
-
     }
 
     return (
@@ -61,7 +59,6 @@ function AddLocation(props) {
                 onChange={(e) => props.changeLongitude(e.target.value)}
                 required={true} step={0.0000001}
                 min={-180} max={180}
-
             />
             <br/>
             <input type="submit" value={"Add Location"}/>
