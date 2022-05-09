@@ -15,7 +15,6 @@ function DisplaySelectedLocation({selectedLocation}) {
     const [forecastData, setForecastData] = useState([]);
     const [forecastImg, setForecastImg] = useState(<br/>);
 
-    // let img = <br/>;
     let fdList = [];
 
     function status(response) {
@@ -38,7 +37,7 @@ function DisplaySelectedLocation({selectedLocation}) {
 
     const handleShowForecast = () => {
 
-        setForecastImg(<img src={'%PUBLIC_URL%/sun-animation.gif'} alt={'img gif'}/>)
+        setForecastImg(<img src={'/images/sun-animation.gif'} alt={'img gif'}/>)
 
         fetch(`${weatherApiAddress}${locationData.longitude}&lat=${locationData.latitude}${meteoroElement}`)
             .then(status)
