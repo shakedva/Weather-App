@@ -4,5 +4,5 @@ export const ForecastData = function (dateInp, weatherInp, minInp, maxInp, windI
     const min = minInp;
     const max = maxInp;
     const wind = windInp;
-    return [date, weather, min, max, wind];
+    return {date, weather, min, max, wind};
 };
