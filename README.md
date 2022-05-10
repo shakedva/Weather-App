@@ -1,4 +1,4 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=7721575&assignment_repo_type=AssignmentRepo)
+
 # React exercise - Internet Programming Course
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -8,6 +8,13 @@ Shaked Vaknin - shakedva@edu.hac.ac.il </br>
 Noy Tal - noyta@edu.hac.ac.il
 
 ## General Information
+
+### Assumptions
+The latitude values are between -90 - 90 <br/>
+The longitude  values are between -180 - 180 <br/>
+If the values entered are too close to the edges (like longitude=179.9)
+you might receive invalid  information or might not receive at all.
+
 
 ### libraries used for this project:
 react-router, ...
