@@ -6,6 +6,7 @@ import * as React from 'react'
 import Layout from "./Layout"
 import Forecast from "./forcast/Forecast"
 import Locations from "./location/Locations"
+import ErrorPage from "./Error/ErrorPage"
 import {LocationProvider} from './contexts/LocationContext'
 
 /**
@@ -22,6 +23,7 @@ function App()
                     <Route path="/" element={<Layout/>}>
                         <Route index element={<Forecast/>}/>
                         <Route path="Locations" element={<Locations/>}/>
+                        <Route path="*" element={<ErrorPage/>}/>
                     </Route>
                 </Routes>
             </BrowserRouter>

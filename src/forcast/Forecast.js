@@ -16,7 +16,7 @@ const Forecast = () =>
             <DisplayLocations setSelectedLocation={setSelectedLocation} showDelete={false}/>
             {selectedLocation ? <DisplaySelectedLocation selectedLocation={selectedLocation}/> : <br/>
             }
-        </div>)
-};
+        </div>);
+}
 
 export default Forecast;

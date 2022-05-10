@@ -9,6 +9,13 @@ Noy Tal - noyta@edu.hac.ac.il
 
 ## General Information
 
+This is an SPA with React. <br/>
+In this page the user can do 2 things:
+<ol>
+<li>Add/Remove location by choosing its name, latitude and longitude</li>
+<li>Choosing a specific location in their list and loading its forecast for the following week </li>
+</ol>
+
 ### Assumptions
 The latitude values are between -90 - 90 <br/>
 The longitude  values are between -180 - 180 <br/>
