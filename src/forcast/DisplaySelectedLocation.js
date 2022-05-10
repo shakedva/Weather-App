@@ -1,5 +1,5 @@
 import {useLocation} from "../contexts/LocationContext";
-import {useState} from "react";
+import React, {useState} from "react";
 import {ForecastData} from "../structs/ForecastData";
 import DayWeatherCard from "./DayWeatherCard";
 
@@ -68,45 +68,6 @@ function DisplaySelectedLocation(props) {
             setForecastImg(<h5><br/> <b>7timer servers are not available right now, please try again later</b></h5>)
         })
     }
-
-    // const changeForecast = () =>
-    // {
-    //     console.log("hi")
-    // let s = '<br/>'
-    // if(props.isLocationChanged)
-    // {
-    //     props.setIsLocationChanged(false)
-    //     return( <div>
-    //             {forecastImg}<br/>
-    //             <DayWeatherCard forecastData={forecastData}/>
-    //         </div>)
-    //
-    // }
-    // return <br/>
-    // if(props.isLocationChanged)
-    //     props.setIsLocationChanged(false)
-    // return props.isLocationChanged?  <br/> : ( <div> {forecastImg}<br/>
-    //                                          <DayWeatherCard forecastData={forecastData}/>
-    //                                            </div>)
-    //
-    // props.setIsLocationChanged(false)
-    // console.log("hi")
-    // return <div>props.isLocationChanged: {props.isLocationChanged}</div>
-    // console.log("changeForecast: " +props.isLocationChanged)
-    // if(props.isLocationChanged)
-    // {
-    //     props.setIsLocationChanged(false)
-    //     // return (
-    //     //     <div>
-    //     //         {forecastImg}<br/>
-    //     //         <DayWeatherCard forecastData={forecastData}/>
-    //     //     </div>
-    //     // )
-    // }
-    // return <br/>
-    //     // <div>{props.isLocationChanged}</div>
-    // }
-
     return (
         <div>
             <hr/>
@@ -118,7 +79,10 @@ function DisplaySelectedLocation(props) {
             <div>
 
                 <br/>
-                <button className={"btn btn-outline-info"} onClick={handleShowForecast}>Show Forecast</button>
+                <button className={"btn btn-outline-info"} onClick={handleShowForecast}>
+                    <img src="/images/search24.png" alt={"search"}/>
+                    <span>Show Forecast</span>
+                </button>
             </div>
             <hr/>
             <div>

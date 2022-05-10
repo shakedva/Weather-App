@@ -45,3 +45,10 @@ input[type=text] {
 .navSection {
     text-align: center;
 }
+
+button > img,
+button > span,
+a > span
+{
+    vertical-align: middle;
+}

@@ -12,9 +12,15 @@ function Layout() {
     return (
         <div className={"navSection"}>
             <nav>
-                <Link to="/" className={"btn btn-outline-info"}> Forecast</Link>
+                <Link to="/" className={"btn btn-outline-info"}>
+                    <img src="/images/partly_cloudy_day24.png" alt={"forecast"}/>
+                    <span>Forecast</span>
+                </Link>
                 <span>&nbsp;</span>
-                <Link to="/Locations" className={"btn btn-outline-info"}> Locations</Link>
+                <Link to="/Locations" className={"btn btn-outline-info"}>
+                    <img src="/images/globe24.png" alt={"locations"}/>
+                    <span>Locations</span>
+                </Link>
                 <div><br/></div>
             </nav>
             <Outlet/>
