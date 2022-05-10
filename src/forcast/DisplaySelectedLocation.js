@@ -77,7 +77,6 @@ function DisplaySelectedLocation(props) {
                 <b>Longitude:</b> {locationData.longitude}
             </div>
             <div>
-
                 <br/>
                 <button className={"btn btn-outline-info"} onClick={handleShowForecast}>
                     <img src="/images/search24.png" alt={"search"}/>

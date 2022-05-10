@@ -13,7 +13,6 @@ function LocationRow(props) {
      */
     const handleClick = () => {
         props.setSelectedLocation(props.oneLocation.name)
-        props.setIsLocationChanged(true)
     }
 
     return (

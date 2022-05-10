@@ -15,8 +15,7 @@ function DisplayLocations(props) {
     const locationRows = state.locationList.map((oneLocation, index) => {
             return (
                 <React.Fragment key={index}>
-                    <LocationRow setIsLocationChanged={props.setIsLocationChanged}
-                                 setSelectedLocation={props.setSelectedLocation} showDelete={props.showDelete}
+                    <LocationRow setSelectedLocation={props.setSelectedLocation} showDelete={props.showDelete}
                                  oneLocation={oneLocation}/>
                 </React.Fragment>
             )
