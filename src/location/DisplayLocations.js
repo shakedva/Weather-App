@@ -1,17 +1,19 @@
 import {useLocation} from '../contexts/LocationContext'
 import LocationRow from './LocationRow'
 import * as React from 'react'
-import style from '../css/style.css'
 
-function DisplayLocations(props) {
+function DisplayLocations(props)
+{
 
     const {state} = useLocation()
 
     //todo maybe state
-    const locationRows = state.locationList.map((oneLocation, index) => {
+    const locationRows = state.locationList.map((oneLocation, index) =>
+        {
             return (
                 <React.Fragment key={index}>
-                    <LocationRow setSelectedLocation={props.setSelectedLocation} showDelete={props.showDelete}
+                    <LocationRow setIsLocationChanged={props.setIsLocationChanged}
+                                 setSelectedLocation={props.setSelectedLocation} showDelete={props.showDelete}
                                  oneLocation={oneLocation}/>
                 </React.Fragment>
             )
@@ -22,8 +24,8 @@ function DisplayLocations(props) {
 
     return (
         <div className={'locationsList'}>
-            {/*<li><h3>Locations:</h3></li>*/}
-            {locationRows}
+            <h3>Locations:</h3>
+            {l}
         </div>
     )
 }

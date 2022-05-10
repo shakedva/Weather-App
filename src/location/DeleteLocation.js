@@ -6,7 +6,7 @@ function DeleteLocation({name}) {
     const handleDelete = () => {
         dispatch({type: 'delete', locationToDelete: name})
     }
-    return <button onClick={handleDelete}>x</button>;
+    return <button className={"locationItem locationItem-sm"} onClick={handleDelete}>x</button>;
 }
 
 export default DeleteLocation;

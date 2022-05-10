@@ -1,12 +1,47 @@
-.locationItem {
-    color: black;
-    border-style: solid;
-    width: 140px;
-    display: inline-block;
-    border-radius: 8px;
+#errorElem {
+    color: red;
 }
 
-.locationsList {
-/*    border-color: green;*/
-/*    border-style: solid;*/
+input, .locationItem {
+    width: 20em;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 6px;
+}
+.locationItem {
+    width: 12em;
+}
+.locationItem-sm {
+    width: 2em;
+}
+
+input[type=text] {
+    width: 20em;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('/public/images/pin_drop.png');
+    background-position: 5px 5px;
+    background-repeat: no-repeat;
+    padding: 6px 10px 6px 40px;
+}
+
+.locationItemtrue{
+    cursor: none;
+}
+
+.locationItemfalse:hover {background-color: gray}
+
+.locationItemfalse:active {
+    background-color: gray;
+    transform: translateY(4px);
+}
+
+.navSection {
+    text-align: center;
 }

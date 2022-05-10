@@ -31,7 +31,7 @@ const DayWeatherCard = ({forecastData}) => {
 
     const daysRows = forecastData.map((day, index) => {
             return (
-                <div className="card" key={index}>
+                <div className="card col-sm-3" key={index}>
                     <div className="card-header">
                         {convertDate(day.date)}
                     </div>
@@ -41,14 +41,15 @@ const DayWeatherCard = ({forecastData}) => {
                         <p className="card-text">Wind conditions: {day.wind === 1 ? 'No Wind' : `${day.wind}m/s`}</p>
                     </div>
                 </div>
+
             )
         }
     )
 
     return (
-        <div>
+        <div className={"row"}>
+            <br/>
             {daysRows}
-            {/*{forecastData}*/}
         </div>
     )
 };

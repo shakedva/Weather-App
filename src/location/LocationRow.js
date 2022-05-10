@@ -1,16 +1,23 @@
 import DeleteLocation from "./DeleteLocation";
 
-function LocationRow(props) {
+function LocationRow(props)
+{
 
-    const handleClick = () => {
+    const handleClick = () =>
+    {
         props.setSelectedLocation(props.oneLocation.name)
+        props.setIsLocationChanged(true)
     }
 
+
     return (
-        // <p className={'locationItem'}  >{props.oneLocation.name}
         <p>
-            <span className={'locationItem'} onClick={handleClick}>{props.oneLocation.name}</span>
+            {/*{locationClickability}*/}
+            <button className={`locationItem locationItem${props.showDelete}`} onClick={handleClick}>{props.oneLocation.name}</button>
+            {/*{props.showDelete ? <button className={'locationItem dis'} onClick={handleClick}>{props.oneLocation.name}</button>*/}
+            {/*                  :<button className={'locationItem'} onClick={handleClick}>{props.oneLocation.name}</button>}*/}
             {props.showDelete ? <DeleteLocation name={props.oneLocation.name}/> : ""}
+
         </p>
     );
 }

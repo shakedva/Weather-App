@@ -3,7 +3,8 @@ import {useState} from "react";
 import {ForecastData} from "../structs/ForecastData";
 import DayWeatherCard from "./DayWeatherCard";
 
-function DisplaySelectedLocation({selectedLocation}) {
+function DisplaySelectedLocation(props)
+{
     const weatherApiAddress = 'https://www.7timer.info/bin/api.pl?lon='; //35.213618&lat=31.771959
     const meteoroElement = '&product=civillight&output=json';
 
@@ -17,17 +18,23 @@ function DisplaySelectedLocation({selectedLocation}) {
 
     let fdList = [];
 
-    function status(response) {
-        if (response.status >= 200 && response.status < 300) {
+    function status(response)
+    {
+        if (response.status >= 200 && response.status < 300)
+        {
             return Promise.resolve(response)
-        } else {
+        } else
+        {
             return Promise.reject(new Error(response.statusText))
         }
     }
 
-    const extractLocationData = () => {
-        for (let i = 0; i < state.locationList.length; i++) {
-            if (state.locationList[i].name === selectedLocation) {
+    const extractLocationData = () =>
+    {
+        for (let i = 0; i < state.locationList.length; i++)
+        {
+            if (state.locationList[i].name === props.selectedLocation)
+            {
                 return state.locationList[i];
             }
         }
@@ -35,37 +42,96 @@ function DisplaySelectedLocation({selectedLocation}) {
 
     const locationData = extractLocationData();
 
-    const handleShowForecast = () => {
+    const handleShowForecast = () =>
+    {
 
         setForecastImg(<img src={'/images/sun-animation.gif'} alt={'img gif'}/>)
 
         fetch(`${weatherApiAddress}${locationData.longitude}&lat=${locationData.latitude}${meteoroElement}`)
             .then(status)
             .then(res => res.json())
-            .then(json => {
-                for (let day of json.dataseries) {
+            .then(json =>
+            {
+                for (let day of json.dataseries)
+                {
                     let fd = ForecastData(day.date, day.weather, day.temp2m.min, day.temp2m.max, day.wind10m_max)
                     fdList.push(fd);
                 }
                 setForecastImg(<img
+                    className={"img-fluid"}
                     src={`${imgApiAddress}${locationData.longitude}&lat=${locationData.latitude}${imgElement}`}
                     alt={'img forecast'}/>)
 
                 setForecastData(fdList);
-            }).catch(function () {
+            }).catch(function ()
+        {
             console.log('oopsi')
+            setForecastImg(<h5><br/> <b>7timer servers are not available right now, please try again later</b></h5>)
         })
+    }
+
+    const changeForecast = () =>
+    {
+        console.log("hi")
+        // let s = '<br/>'
+        // if(props.isLocationChanged)
+        // {
+        //     props.setIsLocationChanged(false)
+        //     return( <div>
+        //             {forecastImg}<br/>
+        //             <DayWeatherCard forecastData={forecastData}/>
+        //         </div>)
+        //
+        // }
+        // return <br/>
+
+        // if(props.isLocationChanged)
+        //     props.setIsLocationChanged(false)
+        // return props.isLocationChanged?  <br/> : ( <div> {forecastImg}<br/>
+        //                                          <DayWeatherCard forecastData={forecastData}/>
+        //                                            </div>)
+
+        //
+        // props.setIsLocationChanged(false)
+        // console.log("hi")
+        // return <div>props.isLocationChanged: {props.isLocationChanged}</div>
+        // console.log("changeForecast: " +props.isLocationChanged)
+        // if(props.isLocationChanged)
+        // {
+        //     props.setIsLocationChanged(false)
+        //     // return (
+        //     //     <div>
+        //     //         {forecastImg}<br/>
+        //     //         <DayWeatherCard forecastData={forecastData}/>
+        //     //     </div>
+        //     // )
+        // }
+        // return <br/>
+        //     // <div>{props.isLocationChanged}</div>
     }
 
     return (
         <div>
-            Name: {locationData.name} <br/>
-            Latitude: {locationData.latitude} <br/>
-            Longitude: {locationData.longitude} <br/>
-            <button onClick={handleShowForecast}>Show Forecast</button>
-            <br/>
-            {forecastImg}<br/>
-            <DayWeatherCard forecastData={forecastData}/>
+            <hr/>
+            <div>
+                <b>Name:</b> {locationData.name} <br/>
+                <b>Latitude:</b> {locationData.latitude} <br/>
+                <b>Longitude:</b> {locationData.longitude}
+            </div>
+            <div>
+
+                <br/>
+                <button className={"btn btn-outline-info"} onClick={handleShowForecast}>Show Forecast</button>
+            </div>
+            <hr/>
+            <div>
+                <br/>
+                {forecastImg}<br/>
+                <br/>
+                <DayWeatherCard forecastData={forecastData}/>
+            </div>
+            {/*{changeForecast()}*/}
+            {/*<div>isLocationChanged: ----{props.isLocationChanged ? "true" : "false"}-----</div>*/}
         </div>
     );
 }
