@@ -2,14 +2,17 @@ import {useLocation} from '../contexts/LocationContext'
 import LocationRow from './LocationRow'
 import * as React from 'react'
 
-function DisplayLocations(props)
-{
-
+/**
+ * This component is responsible to display all locations from the locations list
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
+function DisplayLocations(props) {
     const {state} = useLocation()
 
-    //todo maybe state
-    const locationRows = state.locationList.map((oneLocation, index) =>
-        {
+    //create a LocationRow component for each of the locations from the locations list
+    const locationRows = state.locationList.map((oneLocation, index) => {
             return (
                 <React.Fragment key={index}>
                     <LocationRow setIsLocationChanged={props.setIsLocationChanged}
@@ -20,12 +23,13 @@ function DisplayLocations(props)
         }
     )
     const msg = <div>(No locations yet...)</div>
-    let l = state.locationList.length === 0 ? msg : locationRows
+    //show all existing locationd from the locations list if there are any. otherwise show msg
+    let dataToShow = state.locationList.length === 0 ? msg : locationRows
 
     return (
         <div className={'locationsList'}>
             <h3>Locations:</h3>
-            {l}
+            {dataToShow}
         </div>
     )
 }

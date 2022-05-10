@@ -1,23 +1,26 @@
 import DeleteLocation from "./DeleteLocation";
 
-function LocationRow(props)
-{
+/**
+ * This component is responsible to display one location from the locations list
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
+function LocationRow(props) {
 
-    const handleClick = () =>
-    {
+    /**
+     * this function saves the location that was last clicked
+     */
+    const handleClick = () => {
         props.setSelectedLocation(props.oneLocation.name)
         props.setIsLocationChanged(true)
     }
 
-
     return (
         <p>
-            {/*{locationClickability}*/}
-            <button className={`locationItem locationItem${props.showDelete}`} onClick={handleClick}>{props.oneLocation.name}</button>
-            {/*{props.showDelete ? <button className={'locationItem dis'} onClick={handleClick}>{props.oneLocation.name}</button>*/}
-            {/*                  :<button className={'locationItem'} onClick={handleClick}>{props.oneLocation.name}</button>}*/}
+            <button className={`locationItem locationItem${props.showDelete}`}
+                    onClick={handleClick}>{props.oneLocation.name}</button>
             {props.showDelete ? <DeleteLocation name={props.oneLocation.name}/> : ""}
-
         </p>
     );
 }

@@ -8,6 +8,11 @@ import Forecast from "./forcast/Forecast"
 import Locations from "./location/Locations"
 import {LocationProvider} from './contexts/LocationContext'
 
+/**
+ * the main component of our website
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function App()
 {
     return (
@@ -23,7 +28,6 @@ function App()
         </LocationProvider>
     );
 }
-
 
 export default App;
 

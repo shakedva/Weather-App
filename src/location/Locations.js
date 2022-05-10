@@ -2,12 +2,16 @@ import AddLocation from "./AddLocation"
 import DisplayLocations from "./DisplayLocations"
 import {useState} from "react";
 
+/**
+ * This component is responsible of the representation of the Location page
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function Locations() {
 
-    //todo remove default
-    const [name, setName] = useState("jlm");
-    const [latitude, setLatitude] = useState("31.771959");
-    const [longitude, setLongitude] = useState("35.213618");
+    const [name, setName] = useState(""); //name input
+    const [latitude, setLatitude] = useState(""); //latitude input
+    const [longitude, setLongitude] = useState(""); //longitude input
 
     return (
         <div>
@@ -17,7 +21,6 @@ function Locations() {
                          longitude={longitude} changeLongitude={setLongitude}/>
         </div>
     );
-
 }
 
 export default Locations;

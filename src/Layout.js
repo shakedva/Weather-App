@@ -3,8 +3,12 @@ import React from "react";
 
 import "./App";
 
-function Layout()
-{
+/**
+ * the layout component of our pages to navigate
+ * @returns {JSX.Element}
+ * @constructor
+ */
+function Layout() {
     return (
         <div className={"navSection"}>
             <nav>
