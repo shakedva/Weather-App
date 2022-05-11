@@ -121,7 +121,6 @@ const DayWeatherCard = ({forecastData}) =>
                         <p className="card-text"><b>Weather:</b> {weatherImage(day.weather)}
                             <br/> {weatherDefinition(day.weather)}</p>
                         <p className="card-text"><b>Temperatures:</b> {day.min}℃ - {day.max}℃</p>
-                        {/*<p className="card-text">Wind conditions: {day.wind === 1 ? 'No Wind' : `${day.wind}m/s`}</p>*/}
                         <p className="card-text"><b>Wind conditions:</b> {windDefinition(day.wind)}</p>
                     </div>
                 </div>
